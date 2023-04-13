@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import restautants from "@/data.json";
+
 const route = useRoute();
-const router = useRouter();
 const name = route.params.name;
 
 const restaurant = restautants.find((r) => r.name === name);
+
+useMeta({
+  title: restautant ? name : "404 - Restaurant Not Found",
+  meta: [
+    {
+      name: "viewport",
+      content: "width=device-width",
+    },
+  ],
+});
 </script>
 <template>
   <div>
